@@ -1,0 +1,83 @@
+/* Fond sombre et élégant */
+body {
+  margin: 0;
+  background-color: #0f0f0f;
+  font-family: 'Helvetica Neue', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container centré verticalement */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: rise 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo responsive : max 80% de largeur écran, sans dépasser 400px */
+.logo {
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 10px; /* réduit l'espace avec le texte */
+}
+
+/* Texte Coming Soon */
+.coming-soon {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 1.2px;
+  color: #ccc;
+  text-align: center;
+}
+
+/* Animation des trois points */
+.dots span {
+  opacity: 0;
+  animation: appear 0.4s forwards;
+}
+
+.dots span:nth-child(1) { animation-delay: 1.3s; }
+.dots span:nth-child(2) { animation-delay: 1.7s; }
+.dots span:nth-child(3) { animation-delay: 2.1s; }
+
+@keyframes appear {
+  to { opacity: 1; }
+}
+
+/* ---------- 1. Responsive mobile fine-tuning ---------- */
+@media (max-width: 480px) {
+  .coming-soon {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .logo {
+    width: 90%;
+    max-width: 300px;
+  }
+}
+
+/* ---------- 2. Effet hover discret sur le logo ---------- */
+.logo {
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.03); /* effet subtil */
+}
